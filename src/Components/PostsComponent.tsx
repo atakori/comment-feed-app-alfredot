@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { PostsContextType } from "../types";
 import { PostsContext } from "../context/postsContext";
+import NoPostsFoundComponent from './NoPostsFoundComponent';
 
 const PostsComponent = () => {
     const { posts } = useContext(PostsContext) as PostsContextType;
@@ -11,7 +12,7 @@ const PostsComponent = () => {
 
     }, [posts])
 
-    return (
+    return posts.length === 0 ? <NoPostsFoundComponent/> : (
         <div>
             <h1> Posts will go here once there is a successful post!!!</h1>
         </div>
