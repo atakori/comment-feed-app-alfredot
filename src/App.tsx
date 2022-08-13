@@ -1,10 +1,15 @@
 import './App.css';
-import PostTweetComponent from './PostTweetComponent/PostTweetComponent';
+import PostTweetComponent from './Components/PostTweetComponent';
+import PostsComponent from './Components/PostsComponent';
+import { PostsProvider } from './context/postsContext'
 
 function App() {
   return (
     <div className="app">
-      <PostTweetComponent/>
+      <PostsProvider>
+        <PostTweetComponent />
+        <PostsComponent/>
+      </PostsProvider>
     </div>
   );
 }
