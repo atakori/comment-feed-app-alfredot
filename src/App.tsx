@@ -1,6 +1,6 @@
 import './App.css';
 import PostTweetComponent from './Components/PostTweetComponent';
-import PostsComponent from './Components/PostsComponent';
+import ProfileFeedComponent from './Components/ProfileFeedComponent';
 import { PostsProvider } from './context/postsContext';
 import { ProfileProvider } from './context/profileContext';
 
@@ -10,7 +10,7 @@ function App() {
       <ProfileProvider>
         <PostsProvider>
           <PostTweetComponent />
-          <PostsComponent/>
+          <ProfileFeedComponent/>
         </PostsProvider>
       </ProfileProvider>
     </div>

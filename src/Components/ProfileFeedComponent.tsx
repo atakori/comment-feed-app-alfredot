@@ -3,7 +3,7 @@ import { PostsContextType } from "../types";
 import { PostsContext } from "../context/postsContext";
 import NoPostsFoundComponent from './NoPostsFoundComponent';
 
-const PostsComponent = () => {
+const ProfileFeedComponent = () => {
     const { posts } = useContext(PostsContext) as PostsContextType;
     
     useEffect(() => {
@@ -19,4 +19,4 @@ const PostsComponent = () => {
     );
   };
   
-  export default PostsComponent;
+  export default ProfileFeedComponent;
