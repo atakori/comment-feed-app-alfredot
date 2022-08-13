@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { transformPostMessage } from '../utils';
 import { useProfile }from '../context/profileContext'
-import { PostsContext } from '../context/postsContext';
-import { PostsContextType } from '../types';
+import { usePostsContext } from '../context/postsContext';
+import { IUserProfile, PostsContextType } from '../types';
 
 const ActionButton = styled.button`
   font-weight: 500;
@@ -92,8 +91,8 @@ const PostTweetButtonsContainer = styled.div`
 
 const PostTweetComponent = () => {
     const [ postMessage, setPostMessage ] = useState("")
-    const { savePost } = React.useContext(PostsContext) as PostsContextType;
-    const username = useProfile();
+    const { savePost } = usePostsContext() as PostsContextType;
+    const { username } = useProfile() as IUserProfile;
 
     const handleSubmit = () => {
         const transformedPayload = transformPostMessage(postMessage, username);
