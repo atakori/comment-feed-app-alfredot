@@ -5,6 +5,9 @@ import { IUserProfile, PostsContextType } from '../types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
+import { isCommaListExpression } from 'typescript';
+import { keyboardKey } from '@testing-library/user-event';
+import { transformPostMessage } from '../utils';
 
 const CreateCommentContainer = styled.div`
     width: 100%;
@@ -50,10 +53,20 @@ const ActionButton = styled.button`
     }
 `;
 
-const CreateCommentComponent = ({ parentId: string }: any) => {
+const CreateCommentComponent = ({ parentId }: any) => {
     const { savePost } = usePostsContext() as PostsContextType;
     const { username } = useProfile() as IUserProfile;
-    const [commentMessage, setCommentMessage] = useState('');
+    const [ commentMessage, setCommentMessage ] = useState('');
+
+    // Submits the Comment To the savePostApi
+    const handleSubmit = (e: KeyboardEvent) => {
+        if(e.key === 'Enter') {
+            e.preventDefault();
+
+            const postMessage = transformPostMessage(commentMessage, username, parentId)
+            savePost(postMessage);
+        }
+    }
 
     return (
         <CreateCommentContainer>
@@ -65,6 +78,7 @@ const CreateCommentComponent = ({ parentId: string }: any) => {
                 onInput={(e) =>
                     setCommentMessage(e.currentTarget.textContent || '')
                 }
+                onKeyDown={(e : any)=> {handleSubmit(e)}}
                 contentEditable
             ></InputField>
             <ActionButton>
