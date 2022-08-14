@@ -5,8 +5,6 @@ import { IUserProfile, PostsContextType } from '../types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-import { isCommaListExpression } from 'typescript';
-import { keyboardKey } from '@testing-library/user-event';
 import { transformPostMessage } from '../utils';
 
 const CreateCommentContainer = styled.div`
@@ -19,6 +17,7 @@ const CreateCommentContainer = styled.div`
     align-items: center;
     box-sizing: border-box;
     padding: 0px 10px;
+    margin-bottom: 16px;
 `;
 
 const InputField = styled.span`
