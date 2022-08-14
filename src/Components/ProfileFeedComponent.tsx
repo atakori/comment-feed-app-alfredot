@@ -9,6 +9,8 @@ import ReactTimeAgo from 'react-time-ago';
 import en from 'javascript-time-ago/locale/en.json';
 import Avatar from '@mui/material/Avatar';
 
+import MenuComponent from './MenuComponent';
+
 // Adding locale Time for "Time Since Posted"
 TimeAgo.addDefaultLocale(en);
 
@@ -62,6 +64,7 @@ const ProfileFeedComponent = () => {
       const { username, datePosted, message } = post;
       return (
         <ProfileFeedPostContainer>
+                        <MenuComponent />
           <ProfileFeedHeaderContainer>
             <Avatar
               alt={username}
