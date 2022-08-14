@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { IUserPost, PostsContextType } from "../types";
+import { IComment, PostsContextType } from "../types";
 
 export const PostsContext = React.createContext<PostsContextType | null>(null);
 
@@ -9,15 +9,17 @@ export function usePostsContext() {
 
 export function PostsProvider ({children}: any) {
 
-    const [userPosts, setUserPosts] = useState<IUserPost[]>([])
+    const [userPosts, setUserPosts] = useState<IComment[]>([])
 
     // /POST: Create a new post message
-    const savePost = (post: IUserPost) => {
-        const { message, username, datePosted } = post
-        const newPost: IUserPost = {
+    const savePost = (post: IComment) => {
+        const { id, parentId, message, username, dateCreated } = post
+        const newPost: IComment = {
+            id,
+            parentId,
             message,
             username,
-            datePosted
+            dateCreated
         }
 
         const updatedPosts = [...userPosts, newPost ]

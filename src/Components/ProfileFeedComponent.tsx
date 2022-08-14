@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { PostsContextType, IUserPost } from '../types';
+import React, { useContext, useEffect, useState } from 'react';
+import { PostsContextType, IComment } from '../types';
 import { PostsContext } from '../context/postsContext';
 import NoPostsFoundComponent from './NoPostsFoundComponent';
 import { PROFILEPHOTOURL } from '../constants';
@@ -10,6 +10,7 @@ import en from 'javascript-time-ago/locale/en.json';
 import Avatar from '@mui/material/Avatar';
 
 import MenuComponent from './MenuComponent';
+import CreateCommentComponent from './CreateCommentComponent';
 
 // Adding locale Time for "Time Since Posted"
 TimeAgo.addDefaultLocale(en);
@@ -53,18 +54,21 @@ const PostMessage = styled.p`
 
 const ProfileFeedComponent = () => {
   const { posts } = useContext(PostsContext) as PostsContextType;
+  const [comments, setComments] = useState<IComment[]>([])
 
   useEffect(() => {
     console.log('Post has been created and stored in Context');
     console.log(posts);
+
   }, [posts]);
 
-  function renderPosts(posts: IUserPost[]) {
+
+  function renderPosts(posts: IComment[]) {
     return posts.map((post) => {
-      const { username, datePosted, message } = post;
+      const { id, parentId, username, dateCreated, message } = post;
       return (
-        <ProfileFeedPostContainer>
-                        <MenuComponent />
+        <ProfileFeedPostContainer key={id}>
+          <MenuComponent />
           <ProfileFeedHeaderContainer>
             <Avatar
               alt={username}
@@ -73,10 +77,12 @@ const ProfileFeedComponent = () => {
             />
             <PosterInformationContainer>
               <h2>{username}</h2>
-              <ReactTimeAgo date={datePosted} locale='en-US' />
+              <ReactTimeAgo date={dateCreated} locale='en-US' />
             </PosterInformationContainer>
           </ProfileFeedHeaderContainer>
           <PostMessage>{message}</PostMessage>
+
+            <CreateCommentComponent parentId={parentId}/>
         </ProfileFeedPostContainer>
       );
     });

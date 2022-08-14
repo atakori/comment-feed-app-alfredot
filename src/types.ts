@@ -3,13 +3,20 @@ export interface IUserPost {
     username: string;
     datePosted: Date;
 }
-
 export interface IUserProfile {
     username: string;
     photoUrl: string;
 }
 
 export type PostsContextType = {
-    posts: IUserPost[];
-    savePost: (post: IUserPost) => void;
+    posts: IComment[];
+    savePost: (post: IComment) => void;
+}
+
+export interface IComment {
+    id: string;
+    parentId: string | null;
+    message: string;
+    username: string;
+    dateCreated: Date;
 }
