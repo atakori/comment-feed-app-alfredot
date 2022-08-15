@@ -66,6 +66,11 @@ const CreateCommentComponent = ({ parentId }: any) => {
         if(e.key === 'Enter') {
             e.preventDefault();
 
+            // Does not allow empty messages
+            // Validation can be added here in the future
+            if(commentMessage.trim().length === 0)
+                return;
+
             const postMessage = transformPostMessage(commentMessage, profileUsername, parentId)
             savePost(postMessage);
 
@@ -74,7 +79,7 @@ const CreateCommentComponent = ({ parentId }: any) => {
 
             if (element) 
                 element.textContent = ""
-
+            setCommentMessage("");
         }
     }
 

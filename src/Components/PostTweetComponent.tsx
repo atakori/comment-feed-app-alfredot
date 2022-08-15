@@ -94,6 +94,12 @@ const PostTweetComponent = () => {
     const { profileUsername } = useUserProfileContext() as IUserProfile;
 
     const handleSubmit = () => {
+
+      // Does not allow submission of empty comment
+      // Can add validation here in the future
+      if(postMessage.trim().length === 0)
+        return;
+
         const transformedPayload = transformPostMessage(postMessage, profileUsername);
         savePost(transformedPayload);
         setPostMessage("");
