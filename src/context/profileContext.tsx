@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {USERNAME, PROFILEPHOTOURL }from '../constants';
+import { USERNAME, PROFILEPHOTOURL }from '../constants';
 import { IUserProfile } from '../types';
 
 export const ProfileContext = React.createContext<IUserProfile | null>(null);

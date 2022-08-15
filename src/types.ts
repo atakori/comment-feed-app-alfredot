@@ -27,3 +27,7 @@ export interface IUpdateCommentLikes {
     username: string;
     commentId: string;
 }
+
+export interface CommentsComponentProps{
+    comments: IComment[];
+}

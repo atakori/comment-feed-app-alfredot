@@ -1,11 +1,7 @@
-import { IComment, IUserProfile } from "../types";
+import { CommentsComponentProps, IUserProfile } from "../types";
 import PostInfoComponent from "./PostInfoComponent";
 import PostInteractionsComponent from "./PostInteractionsComponent";
 import { useUserProfileContext } from "../context/profileContext";
-
-interface CommentsComponentProps{
-    comments: IComment[];
-}
 
 const CommentsComponent = ({comments}: CommentsComponentProps) => {
     const { profileUsername } = useUserProfileContext() as IUserProfile;
@@ -20,7 +16,7 @@ const CommentsComponent = ({comments}: CommentsComponentProps) => {
                 const amountOfComments = comments.filter((comment) => comment.parentId === id).length
 
                 return (
-                    <div key={id}>
+                    <div key={id} data-testid="comment">
                         <PostInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={true}/>
                         <PostInteractionsComponent amountOfLikes={amountOfLikes} amountOfComments={amountOfComments} isLiked={isLiked} commentId={id} isComment={true}/>
                     </div>
@@ -30,7 +26,7 @@ const CommentsComponent = ({comments}: CommentsComponentProps) => {
     }
     
     return(
-        <div>
+        <div data-testid="commentsContainer">
             {renderComments()}
         </div>
     )
