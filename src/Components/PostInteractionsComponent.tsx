@@ -33,6 +33,12 @@ type LikeInteractionButtonNumberProps = {
 const PostInteractionsContainer = styled.div`
     display: flex;
     align-items: center;
+
+    @media (max-width: 440px) {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        margin-bottom: 15px;
+    }
 `;
 
 const InteractionButton = styled.button<InteractionButtonProps>`
@@ -54,7 +60,7 @@ const InteractionButton = styled.button<InteractionButtonProps>`
 `;
 
 const LikeInteractionButton = styled(InteractionButton)<LikeInteractionButtonProps>`
-    color: ${(props) => props.isLiked ?  "#F44900;" : 'inherit'}
+    color: ${(props) => props.isLiked ?  "#F44900;" : 'inherit;'}
     border-radius: 100px;
     
     &:hover{
@@ -87,7 +93,20 @@ const InteractionButtonContainer = styled.div`
     margin-right: 5px;
     height: 30px;
     align-self: baseline;
+
+    @media(max-width: 440px) {
+        height: inherit;
+        text-align: center;
+    }
 `;
+
+const ViewsContainer = styled(InteractionButtonContainer)`
+    @media(max-width: 440px) {
+        display: flex;
+        align-items: center;
+        align-self: inherit;
+    }
+`
 
 const PostInteractionsComponent = ({
     commentId,
@@ -112,10 +131,10 @@ const PostInteractionsComponent = ({
     const renderViews = () => {
         if (!isComment) {
             return (
-                <InteractionButtonContainer>
+                <ViewsContainer>
                     <InteractionButtonNumber>100</InteractionButtonNumber>
                     <InteractionButtonText>Views</InteractionButtonText>
-                </InteractionButtonContainer>
+                </ViewsContainer>
             );
         }
     };

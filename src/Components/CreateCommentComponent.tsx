@@ -35,6 +35,10 @@ const InputField = styled.span`
     &:focus-visible {
         outline: none;
     }
+
+    @media(max-width: 440px) {
+        width: 83%;
+    }
 `;
 
 const ActionButton = styled.button`

@@ -29,6 +29,11 @@ const PosterInformationHeader = styled.h2<PosterInformationHeaderProps>`
     color: #12151d;
 `
 
+const PostMessageContainer = styled.div`
+    display: flex;
+`;
+
+
 const PostMessage = styled.p`
     font-style: normal;
     font-weight: 400;
@@ -79,7 +84,9 @@ const PostInfoComponent = ({
                     <ReactTimeAgo date={dateCreated} locale='en-US' />
                 </PosterInformationContainer>
             </ProfileFeedHeaderContainer>
-            <PostMessage>{message}</PostMessage>
+            <PostMessageContainer>
+                <PostMessage>{message}</PostMessage>
+            </PostMessageContainer>
         </PostInfoContainer>
     );
 };
