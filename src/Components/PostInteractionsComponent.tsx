@@ -14,6 +14,7 @@ type PostInteractionsContainerProps = {
     isComment: boolean;
     isLiked: boolean;
     amountOfLikes: number;
+    amountOfComments: number;
 };
 
 interface InteractionButtonProps {
@@ -93,6 +94,7 @@ const PostInteractionsComponent = ({
     isComment,
     isLiked,
     amountOfLikes,
+    amountOfComments,
 }: PostInteractionsContainerProps) => {
     const { updateLikes } = usePostsContext() as PostsContextType;
     const { profileUsername } = useUserProfileContext() as IUserProfile;
@@ -139,7 +141,7 @@ const PostInteractionsComponent = ({
                 >
                     <FontAwesomeIcon icon={faMessage} />
                 </InteractionButton>
-                <InteractionButtonNumber>25</InteractionButtonNumber>
+                <InteractionButtonNumber>{amountOfComments}</InteractionButtonNumber>
                 <InteractionButtonText>
                     {isComment ? 'Replies' : 'Comment'}
                 </InteractionButtonText>

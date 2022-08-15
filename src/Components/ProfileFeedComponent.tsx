@@ -40,11 +40,14 @@ const ProfileFeedComponent = () => {
             const isLiked = likes.includes(profileUsername);
             const amountOfLikes = likes.length;
 
+            // Looks at each comment where the parentId == current id
+            const amountOfComments = comments.filter((comment) => comment.parentId === id).length
+
             return (
                 <ProfileFeedPostContainer key={id}>
                     <MenuComponent />
                     <PostInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={false}/>
-                    <PostInteractionsContainer amountOfLikes={amountOfLikes} isLiked={isLiked} commentId={id} isComment={false}/>
+                    <PostInteractionsContainer amountOfLikes={amountOfLikes} amountOfComments={amountOfComments} isLiked={isLiked} commentId={id} isComment={false}/>
                     <CreateCommentComponent parentId={id} />
                     <CommentsComponent comments={comments}/>
                 </ProfileFeedPostContainer>
