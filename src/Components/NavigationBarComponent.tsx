@@ -29,6 +29,21 @@ const ProfilePictureContainer = styled.div`
   display: flex;
   justify-content: space-around;
 `
+const OnlineStatusCircle = styled.span`
+  height: 8px;
+  width: 8px;
+  background-color: #35B71B;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  right: 1px;
+  bottom: 0px;
+`
+
+const AvatarContainer = styled.div`
+  display: block;
+  position: relative;
+`
 
 const NavigationBarComponent = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -141,7 +156,10 @@ const NavigationBarComponent = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <ProfilePictureContainer>
-            <Avatar alt={profileUsername} src={photoUrl} sx={{width:30, height: 30}}/>
+            <AvatarContainer>
+              <Avatar alt={profileUsername} src={photoUrl} sx={{width:30, height: 30}}/>
+              <OnlineStatusCircle />
+            </AvatarContainer>
               <Tooltip title="Open settings">
                 <IconButton disableRipple={true} onClick={handleOpenUserMenu} sx={{ p: 0, backgroundColor: 'transparent' }}>
                   <FontAwesomeIcon icon={faChevronDown} style={{fontWeight: 400, fontSize: '12px', lineHeight: '12px'}}/>
