@@ -1,7 +1,7 @@
-import { ReactComponentElement, ReactElement } from "react";
 import { IComment } from "../types";
 import styled from 'styled-components';
 import CommentInfoComponent from "./CommentInfoComponent";
+import PostInteractionsComponent from "./PostInteractionsComponent";
 
 interface CommentsComponentProps{
     comments: IComment[];
@@ -12,7 +12,11 @@ const CommentsComponent = ({comments}: CommentsComponentProps) => {
         return comments.map((comment) => {
                 const {username, dateCreated, message} = comment
                 return (
-                    <CommentInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={true}/>
+                    <div>
+                        <CommentInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={true}/>
+                        <PostInteractionsComponent isComment={true}/>
+                    </div>
+                    
                 )
             })
     }

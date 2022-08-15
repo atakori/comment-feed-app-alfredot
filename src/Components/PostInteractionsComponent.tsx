@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFireFlameSimple, faMessage, faShareNodes } from '@fortawesome/free-solid-svg-icons';
+import { render } from '@testing-library/react';
 
 type PostInteractionsContainerProps = {
     isComment: boolean;
@@ -59,6 +60,18 @@ const InteractionButtonContainer = styled.div`
 const PostInteractionsComponent = ({
     isComment,
 }: PostInteractionsContainerProps) => {
+
+    const renderViews = () => {
+        if(!isComment) {
+            return (
+            <InteractionButtonContainer>
+                <InteractionButtonNumber>100 </InteractionButtonNumber>
+                <InteractionButtonText>Views</InteractionButtonText>
+            </InteractionButtonContainer>
+            )
+        }
+    }
+
     return (
         <PostInteractionsContainer>
             <InteractionButtonContainer>
@@ -73,7 +86,7 @@ const PostInteractionsComponent = ({
                     <FontAwesomeIcon icon={faMessage} />
                 </InteractionButton>
                 <InteractionButtonNumber>25 </InteractionButtonNumber>
-                <InteractionButtonText>Comment</InteractionButtonText>
+                <InteractionButtonText>{isComment? 'Replies':'Comment'}</InteractionButtonText>
             </InteractionButtonContainer>
             <InteractionButtonContainer>
                 <InteractionButton color='rgba(18, 21, 29, 0.87);' backgroundColor='rgba(18, 21, 29, 0.3);'>
@@ -82,13 +95,7 @@ const PostInteractionsComponent = ({
                 <InteractionButtonNumber>13 </InteractionButtonNumber>
                 <InteractionButtonText>Shares</InteractionButtonText>
             </InteractionButtonContainer>
-            <InteractionButtonContainer>
-                <InteractionButtonNumber>100 </InteractionButtonNumber>
-                <InteractionButtonText>Views</InteractionButtonText>
-            </InteractionButtonContainer>
-            {/* <InteractionButtonText>Comments</InteractionButtonText>
-            <p>Shares</p>
-            <p>Views</p> */}
+            {renderViews()}
         </PostInteractionsContainer>
     );
 };
