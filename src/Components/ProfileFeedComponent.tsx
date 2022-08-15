@@ -36,22 +36,24 @@ const ProfileFeedComponent = () => {
             // Looks at each comment where the parentId == current id
             const amountOfComments = comments.filter((comment) => comment.parentId === id).length
 
+            console.log("COMMENTS")
+            console.log(amountOfComments);
             return (
-                <ProfileFeedPostContainer key={id}>
+                <ProfileFeedPostContainer data-testid="postContainer" key={id}>
                     <MenuComponent />
                         <PostInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={false}/>
                         <PostInteractionsContainer amountOfLikes={amountOfLikes} amountOfComments={amountOfComments} isLiked={isLiked} commentId={id} isComment={false}/>
                         <CreateCommentComponent parentId={id} />
-                        <CommentsComponent comments={comments}/>
+                        <CommentsComponent data-testid="comments" comments={comments}/>
                 </ProfileFeedPostContainer>
             );
         });
     }
 
     return posts.length === 0 ? (
-        <NoPostsFoundComponent />
+        <NoPostsFoundComponent data-testid="noPostsFoundComponent"/>
     ) : (
-        <div>
+        <div data-testid="profileFeedContainer">
             {renderPosts(posts)}
         </div>
     );

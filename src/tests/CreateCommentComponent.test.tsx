@@ -1,21 +1,10 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { IUserProfile, PostsContextType } from '../types';
 import * as profileHooks from '../context/profileContext';
 import * as postsHooks from '../context/postsContext';
 import CreateCommentComponent from '../Components/CreateCommentComponent';
 import userEvent from '@testing-library/user-event';
-
-const mockProfileContext: IUserProfile = {
-    profileUsername: 'testProfile',
-    photoUrl: 'wwww.testurl.com',
-};
-
-const mockUsePostsContext: PostsContextType = {
-    posts: [],
-    savePost: jest.fn(),
-    updateLikes: jest.fn(),
-};
+import { mockProfileContext, mockUsePostsContext } from './mock';
 
 describe('CreateCommentComponent', function () {
     afterEach(cleanup);

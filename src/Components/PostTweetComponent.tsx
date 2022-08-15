@@ -101,7 +101,7 @@ const PostTweetComponent = () => {
 
   return (
     <PostTweetContainer>
-      <TextInput onChange={(e) => {setPostMessage(e.target.value)}} value={postMessage} placeholder="What's on your mind?"></TextInput>
+      <TextInput data-testid="textInput" onChange={(e) => {setPostMessage(e.target.value)}} value={postMessage} placeholder="What's on your mind?"></TextInput>
       <PostTweetButtonsContainer>
         <ActionButtonsContainer>
           <ActionButton>
@@ -111,7 +111,7 @@ const PostTweetComponent = () => {
             <FontAwesomeIcon icon={faVideo} /> Go Live
           </ActionButton>
         </ActionButtonsContainer>
-        <PostButton onClick={handleSubmit}>Post</PostButton>
+        <PostButton data-testid="postButton" onClick={handleSubmit}>Post</PostButton>
       </PostTweetButtonsContainer>
     </PostTweetContainer>
   );

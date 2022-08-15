@@ -118,7 +118,7 @@ const PostInteractionsComponent = ({
     const { updateLikes } = usePostsContext() as PostsContextType;
     const { profileUsername } = useUserProfileContext() as IUserProfile;
 
-    //Calls on the ContextAPI method to update this comments "Likes"
+    //Calls on the ContextAPI method to update this comment's "Likes"
     const handleLikeUpdate = () => {
         const updateLikesObject: IUpdateCommentLikes = {
             username: profileUsername,
@@ -131,7 +131,7 @@ const PostInteractionsComponent = ({
     const renderViews = () => {
         if (!isComment) {
             return (
-                <ViewsContainer>
+                <ViewsContainer data-testid="viewsContainer">
                     <InteractionButtonNumber>100</InteractionButtonNumber>
                     <InteractionButtonText>Views</InteractionButtonText>
                 </ViewsContainer>
@@ -143,6 +143,7 @@ const PostInteractionsComponent = ({
         <PostInteractionsContainer>
             <InteractionButtonContainer>
                 <LikeInteractionButton
+                    data-testid="likeButton"
                     onClick={() => handleLikeUpdate()}
                     color='#F44900;'
                     backgroundColor='rgba(244, 73, 0, 0.3);'
