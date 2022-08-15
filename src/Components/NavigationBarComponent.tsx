@@ -11,14 +11,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { useUserProfileContext } from '../context/profileContext';
 import { IUserProfile } from '../types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components';
 
-
+const logo =  require("../images/Logo.png")
 const pages = ['Create', 'Lounge', 'Discover','Opportunity'];
 const settings = ['My portfolio', 'My Organizations', 'Settings', 'Logout'];
 
@@ -53,10 +52,9 @@ const NavigationBarComponent = () => {
   const {photoUrl, profileUsername} = useUserProfileContext() as IUserProfile
 
   return (
-    <AppBar elevation={0} position="static" sx={{backgroundColor: '#FFFFFF', color: '#006CFA', borderBottom: '1px solid #CED7E7'}}>
-      <Container maxWidth="xl">
+    <AppBar elevation={0} position="static" sx={{backgroundColor: '#FFFFFF', color: '#006CFA', borderBottom: '1px solid #CED7E7', padding: '0px'}}>
+      <Container maxWidth="xl" sx={{padding: '0px 10px !important'}}>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -72,7 +70,7 @@ const NavigationBarComponent = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <img alt="Logo" src={logo}/>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -111,7 +109,6 @@ const NavigationBarComponent = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -128,7 +125,7 @@ const NavigationBarComponent = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <img alt="Logo" src={logo}/>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -146,7 +143,7 @@ const NavigationBarComponent = () => {
             <ProfilePictureContainer>
             <Avatar alt={profileUsername} src={photoUrl} sx={{width:30, height: 30}}/>
               <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton disableRipple={true} onClick={handleOpenUserMenu} sx={{ p: 0, backgroundColor: 'transparent' }}>
                   <FontAwesomeIcon icon={faChevronDown} style={{fontWeight: 400, fontSize: '12px', lineHeight: '12px'}}/>
                 </IconButton>
               </Tooltip>

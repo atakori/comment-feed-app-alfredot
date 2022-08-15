@@ -53,6 +53,7 @@ const PostTweetContainer = styled.div`
   border: 1px solid #ced7e7;
   border-radius: 10px;
   justify-content: center;
+  margin-top: 20px;
 `;
 
 const ActionButtonsContainer = styled.div`

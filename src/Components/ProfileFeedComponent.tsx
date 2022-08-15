@@ -22,11 +22,6 @@ const ProfileFeedComponent = () => {
     const { posts } = usePostsContext() as PostsContextType;
     const { profileUsername } = useUserProfileContext() as IUserProfile;
 
-    useEffect(() => {
-        console.log('Post has been created and stored in Context');
-        console.log(posts);
-    }, [posts]);
-
     function renderPosts(posts: IComment[]) {
         const basePosts = posts.filter((posts) => {
             return posts.parentId === null
@@ -46,10 +41,10 @@ const ProfileFeedComponent = () => {
             return (
                 <ProfileFeedPostContainer key={id}>
                     <MenuComponent />
-                    <PostInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={false}/>
-                    <PostInteractionsContainer amountOfLikes={amountOfLikes} amountOfComments={amountOfComments} isLiked={isLiked} commentId={id} isComment={false}/>
-                    <CreateCommentComponent parentId={id} />
-                    <CommentsComponent comments={comments}/>
+                        <PostInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={false}/>
+                        <PostInteractionsContainer amountOfLikes={amountOfLikes} amountOfComments={amountOfComments} isLiked={isLiked} commentId={id} isComment={false}/>
+                        <CreateCommentComponent parentId={id} />
+                        <CommentsComponent comments={comments}/>
                 </ProfileFeedPostContainer>
             );
         });
