@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { usePostsContext } from '../context/postsContext';
-import { useProfile } from '../context/profileContext';
+import { useUserProfileContext } from '../context/profileContext';
 import { IUserProfile, PostsContextType } from '../types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
@@ -54,7 +54,7 @@ const ActionButton = styled.button`
 
 const CreateCommentComponent = ({ parentId }: any) => {
     const { savePost } = usePostsContext() as PostsContextType;
-    const { username } = useProfile() as IUserProfile;
+    const { profileUsername } = useUserProfileContext() as IUserProfile;
     const [ commentMessage, setCommentMessage ] = useState('');
 
     // Submits the Comment To the savePostApi
@@ -62,7 +62,7 @@ const CreateCommentComponent = ({ parentId }: any) => {
         if(e.key === 'Enter') {
             e.preventDefault();
 
-            const postMessage = transformPostMessage(commentMessage, username, parentId)
+            const postMessage = transformPostMessage(commentMessage, profileUsername, parentId)
             savePost(postMessage);
         }
     }

@@ -4,13 +4,14 @@ export interface IUserPost {
     datePosted: Date;
 }
 export interface IUserProfile {
-    username: string;
+    profileUsername: string;
     photoUrl: string;
 }
 
 export type PostsContextType = {
     posts: IComment[];
     savePost: (post: IComment) => void;
+    updateLikes: (updateLikes: IUpdateCommentLikes) => void;
 }
 
 export interface IComment {
@@ -19,4 +20,10 @@ export interface IComment {
     message: string;
     username: string;
     dateCreated: Date;
+    likes: string[];
+}
+
+export interface IUpdateCommentLikes {
+    username: string;
+    commentId: string;
 }

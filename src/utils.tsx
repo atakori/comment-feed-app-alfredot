@@ -11,5 +11,6 @@ export function transformPostMessage (message: string, username: string, parentI
         message,
         username,
         dateCreated: currentTimestamp,
+        likes: []
     }
 }

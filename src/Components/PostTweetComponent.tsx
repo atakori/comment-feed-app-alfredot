@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { transformPostMessage } from '../utils';
-import { useProfile }from '../context/profileContext'
+import { useUserProfileContext }from '../context/profileContext'
 import { usePostsContext } from '../context/postsContext';
 import { IUserProfile, PostsContextType } from '../types';
 
@@ -92,10 +92,10 @@ const PostTweetButtonsContainer = styled.div`
 const PostTweetComponent = () => {
     const [ postMessage, setPostMessage ] = useState("")
     const { savePost } = usePostsContext() as PostsContextType;
-    const { username } = useProfile() as IUserProfile;
+    const { profileUsername } = useUserProfileContext() as IUserProfile;
 
     const handleSubmit = () => {
-        const transformedPayload = transformPostMessage(postMessage, username);
+        const transformedPayload = transformPostMessage(postMessage, profileUsername);
         savePost(transformedPayload)
     }
 
