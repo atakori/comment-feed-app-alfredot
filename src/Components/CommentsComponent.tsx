@@ -13,13 +13,14 @@ const CommentsComponent = ({comments}: CommentsComponentProps) => {
     
     const renderComments = () => {
         return comments.map((comment) => {
-                const {username, dateCreated, message, id, likes} = comment
-                const isLiked = likes.includes(profileUsername)
+                const {username, dateCreated, message, id, likes} = comment;
+                const isLiked = likes.includes(profileUsername);
+                const amountOfLikes = likes.length;
 
                 return (
                     <div>
                         <CommentInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={true}/>
-                        <PostInteractionsComponent isLiked={isLiked} commentId={id} isComment={true}/>
+                        <PostInteractionsComponent amountOfLikes={amountOfLikes} isLiked={isLiked} commentId={id} isComment={true}/>
                     </div>
                     
                 )

@@ -13,6 +13,7 @@ type PostInteractionsContainerProps = {
     commentId: string;
     isComment: boolean;
     isLiked: boolean;
+    amountOfLikes: number;
 };
 
 interface InteractionButtonProps {
@@ -23,6 +24,10 @@ interface InteractionButtonProps {
 interface LikeInteractionButtonProps extends InteractionButtonProps {
     isLiked: boolean;
 };
+
+type LikeInteractionButtonNumberProps = {
+    isLiked: boolean
+}
 
 const PostInteractionsContainer = styled.div`
     display: flex;
@@ -62,7 +67,12 @@ const InteractionButtonNumber = styled.span`
     font-weight: 500;
     font-size: 12px;
     line-height: 20px;
+    margin-right: 2px;
 `;
+
+const LikeInteractionButtonNumber = styled(InteractionButtonNumber)<LikeInteractionButtonNumberProps>`
+    color: ${(props) => props.isLiked ? '#F44900;' : 'inherit'}
+`
 
 const InteractionButtonText = styled.span`
     font-weight: 400;
@@ -82,14 +92,13 @@ const PostInteractionsComponent = ({
     commentId,
     isComment,
     isLiked,
+    amountOfLikes,
 }: PostInteractionsContainerProps) => {
     const { updateLikes } = usePostsContext() as PostsContextType;
     const { profileUsername } = useUserProfileContext() as IUserProfile;
 
+    //Calls on the ContextAPI method to update this comments "Likes"
     const handleLikeUpdate = () => {
-        //Goal: Add the current username to the Post "Likes"
-        // Information To Know: username, id of comment/post
-        console.log('Handling like logic!!!');
         const updateLikesObject: IUpdateCommentLikes = {
             username: profileUsername,
             commentId: commentId,
@@ -102,7 +111,7 @@ const PostInteractionsComponent = ({
         if (!isComment) {
             return (
                 <InteractionButtonContainer>
-                    <InteractionButtonNumber>100 </InteractionButtonNumber>
+                    <InteractionButtonNumber>100</InteractionButtonNumber>
                     <InteractionButtonText>Views</InteractionButtonText>
                 </InteractionButtonContainer>
             );
@@ -120,7 +129,7 @@ const PostInteractionsComponent = ({
                 >
                     <FontAwesomeIcon icon={faFireFlameSimple} />
                 </LikeInteractionButton>
-                <InteractionButtonNumber>99 </InteractionButtonNumber>
+                <LikeInteractionButtonNumber isLiked={isLiked}>{amountOfLikes}</LikeInteractionButtonNumber>
                 <InteractionButtonText>Hypes</InteractionButtonText>
             </InteractionButtonContainer>
             <InteractionButtonContainer>
@@ -130,7 +139,7 @@ const PostInteractionsComponent = ({
                 >
                     <FontAwesomeIcon icon={faMessage} />
                 </InteractionButton>
-                <InteractionButtonNumber>25 </InteractionButtonNumber>
+                <InteractionButtonNumber>25</InteractionButtonNumber>
                 <InteractionButtonText>
                     {isComment ? 'Replies' : 'Comment'}
                 </InteractionButtonText>
@@ -142,7 +151,7 @@ const PostInteractionsComponent = ({
                 >
                     <FontAwesomeIcon icon={faShareNodes} />
                 </InteractionButton>
-                <InteractionButtonNumber>13 </InteractionButtonNumber>
+                <InteractionButtonNumber>13</InteractionButtonNumber>
                 <InteractionButtonText>Shares</InteractionButtonText>
             </InteractionButtonContainer>
             {renderViews()}
