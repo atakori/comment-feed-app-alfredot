@@ -1,4 +1,5 @@
 import './App.css';
+import NavigationBarComponent from './Components/NavigationBarComponent';
 import PostTweetComponent from './Components/PostTweetComponent';
 import ProfileFeedComponent from './Components/ProfileFeedComponent';
 import { PostsProvider } from './context/postsContext';
@@ -9,6 +10,7 @@ function App() {
     <div className="app">
       <ProfileProvider>
         <PostsProvider>
+          <NavigationBarComponent />
           <PostTweetComponent />
           <ProfileFeedComponent/>
         </PostsProvider>
