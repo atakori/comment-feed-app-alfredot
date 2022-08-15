@@ -40,11 +40,10 @@ export function PostsProvider ({children}: any) {
         // Finds Id of comment in the userPosts
         const updatedPosts = [...userPosts];
 
-        console.log(commentId);
         // Find the comment in question...
         const comment = updatedPosts.find((comment) => commentId === comment.id);
 
-        // Look to see if like needs to be added or removed...
+        // Look to see if the like needs to be added or removed...
         if(comment) {
             const currentCommentIndex = updatedPosts.findIndex((comment) => comment.id === commentId)
             let currentLikes = comment.likes;
@@ -61,8 +60,6 @@ export function PostsProvider ({children}: any) {
             // We will replace the entire list for the purposes of the demo
             updatedPosts[currentCommentIndex].likes = currentLikes
             setUserPosts(updatedPosts)
-            console.log("logic completed. Showing new userposts list...")
-            console.log(userPosts)
         }
     }
 

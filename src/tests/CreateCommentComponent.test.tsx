@@ -17,10 +17,10 @@ describe('CreateCommentComponent', function () {
         jest.spyOn(postsHooks, 'usePostsContext').mockImplementation(
             () => mockUsePostsContext,
         );
-
+        
         // Act
         render(<CreateCommentComponent parentId={'1'} />);
-
+        
         // Inserting Text in the InputField
         const input = screen.getByTestId('commentInputField');
         userEvent.click(input);

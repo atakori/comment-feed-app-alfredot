@@ -1,9 +1,10 @@
 import { cleanup, render, screen, within } from '@testing-library/react';
 import CommentsComponent from '../Components/CommentsComponent';
 import '@testing-library/jest-dom';
-import { IUserProfile, IComment, PostsContextType } from '../types';
+import { IComment} from '../types';
 import * as profileHooks from '../context/profileContext';
 import * as postsHooks from '../context/postsContext';
+import { mockProfileContext, mockUsePostsContext } from './mock';
 
 const mockComments: IComment[] = [
     {
@@ -23,17 +24,6 @@ const mockComments: IComment[] = [
         likes: [],
     },
 ];
-
-const mockProfileContext: IUserProfile = {
-    profileUsername: 'testProfile',
-    photoUrl: 'wwww.testurl.com',
-};
-
-const mockUsePostsContext: PostsContextType = {
-    posts: [],
-    savePost: jest.fn(),
-    updateLikes: jest.fn()
-};
 
 describe('CreateCommentComponent', function () {
     afterEach(cleanup);

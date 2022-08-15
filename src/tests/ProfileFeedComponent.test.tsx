@@ -1,4 +1,4 @@
-import { cleanup, render, screen, within } from '@testing-library/react';
+import { cleanup, render, screen, waitFor, within } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import * as profileHooks from '../context/profileContext';
 import * as postsHooks from '../context/postsContext';
@@ -25,7 +25,7 @@ describe('ProfileFeedComponent', function () {
         expect(screen.getByText(/Looks like there are no Posts found/)).toBeInTheDocument();
     });
 
-    it("should render profile feed with all comments", function () {
+    it("should render profile feed with all comments", async function () {
         jest.spyOn(profileHooks, 'useUserProfileContext').mockImplementation(
             () => mockProfileContext,
         );
@@ -34,13 +34,16 @@ describe('ProfileFeedComponent', function () {
             () => mockUsePostsContextSeveralPosts,
         );
 
-        //Act
         render(<ProfileFeedComponent />);
+        //Act
         const parentContainer = screen.getByTestId("profileFeedContainer")
-
         //Expect
         expect(screen.queryByTestId("noPostsFoundComponent")).toBeNull();
         expect(within(parentContainer).getAllByTestId("postContainer")).toHaveLength(2)
-        expect(within(parentContainer).getAllByTestId("comments")).toHaveLength(3);
+
+        await waitFor(() => {
+            expect(within(parentContainer).getAllByTestId("commentsContainer")).toHaveLength(2);
+
+        });
     });
 });

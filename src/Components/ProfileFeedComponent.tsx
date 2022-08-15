@@ -41,10 +41,10 @@ const ProfileFeedComponent = () => {
             return (
                 <ProfileFeedPostContainer data-testid="postContainer" key={id}>
                     <MenuComponent />
-                        <PostInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={false}/>
-                        <PostInteractionsContainer amountOfLikes={amountOfLikes} amountOfComments={amountOfComments} isLiked={isLiked} commentId={id} isComment={false}/>
-                        <CreateCommentComponent parentId={id} />
-                        <CommentsComponent data-testid="comments" comments={comments}/>
+                    <PostInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={false}/>
+                    <PostInteractionsContainer amountOfLikes={amountOfLikes} amountOfComments={amountOfComments} isLiked={isLiked} commentId={id} isComment={false}/>
+                    <CreateCommentComponent parentId={id} />
+                    <CommentsComponent comments={comments} data-testid="commentsContainer"/>
                 </ProfileFeedPostContainer>
             );
         });

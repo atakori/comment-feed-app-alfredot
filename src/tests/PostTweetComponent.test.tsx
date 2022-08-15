@@ -20,7 +20,6 @@ describe('PostTweetComponent', function () {
 
         render(<PostTweetComponent />);
         // Act
-        // Inserting Text in the InputField
         const textInput = screen.getByTestId('textInput');
         const postButton = screen.getByTestId('postButton');
 
