@@ -100,13 +100,13 @@ const NavigationBarComponent = () => {
               <MenuIcon />
             </IconButton>
             <Menu
+              data-testid="mobileMenuPagesContainer"
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
               }}
-              keepMounted
               transformOrigin={{
                 vertical: 'top',
                 horizontal: 'left',
@@ -118,7 +118,7 @@ const NavigationBarComponent = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem data-testid="mobileMenuPagesLinks" key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -145,6 +145,7 @@ const NavigationBarComponent = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
+                data-testid="webMenuPagesLinks"
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: '#006CFA', display: 'block' }}
@@ -161,12 +162,13 @@ const NavigationBarComponent = () => {
               <OnlineStatusCircle />
             </AvatarContainer>
               <Tooltip title="Open settings">
-                <IconButton disableRipple={true} onClick={handleOpenUserMenu} sx={{ p: 0, backgroundColor: 'transparent' }}>
+                <IconButton data-testid="profileMenuButton" disableRipple={true} onClick={handleOpenUserMenu} sx={{ p: 0, backgroundColor: 'transparent' }}>
                   <FontAwesomeIcon icon={faChevronDown} style={{fontWeight: 400, fontSize: '12px', lineHeight: '12px'}}/>
                 </IconButton>
               </Tooltip>
             </ProfilePictureContainer>
             <Menu
+              data-testid="settingsMenu"
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -174,7 +176,6 @@ const NavigationBarComponent = () => {
                 vertical: 'top',
                 horizontal: 'right',
               }}
-              keepMounted
               transformOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
@@ -183,7 +184,7 @@ const NavigationBarComponent = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem data-testid="settingsButton" key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

@@ -72,15 +72,16 @@ const PostInfoComponent = ({
     isComment,
 }: CommentInfo) => {
     return (
-        <PostInfoContainer isComment={isComment}>
+        <PostInfoContainer data-testid="postInfoContainer" isComment={isComment}>
             <ProfileFeedHeaderContainer>
                 <Avatar
+                    data-testid="avatar"
                     alt={username}
                     src={PROFILEPHOTOURL}
                     sx={{ width: isComment ? 40: 60, height: isComment ? 40: 60 }}
                 />
                 <PosterInformationContainer>
-                    <PosterInformationHeader isComment={isComment}>{username}</PosterInformationHeader>
+                    <PosterInformationHeader data-testid="informationHeader" isComment={isComment}>{username}</PosterInformationHeader>
                     <ReactTimeAgo date={dateCreated} locale='en-US' />
                 </PosterInformationContainer>
             </ProfileFeedHeaderContainer>
