@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import MenuComponent from './MenuComponent';
 import CreateCommentComponent from './CreateCommentComponent';
 import CommentsComponent from './CommentsComponent';
-import CommentInfoComponent from './CommentInfoComponent';
+import PostInfoComponent from './PostInfoComponent';
 import PostInteractionsContainer from './PostInteractionsComponent';
 import { useUserProfileContext } from '../context/profileContext';
 
@@ -43,7 +43,7 @@ const ProfileFeedComponent = () => {
             return (
                 <ProfileFeedPostContainer key={id}>
                     <MenuComponent />
-                    <CommentInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={false}/>
+                    <PostInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={false}/>
                     <PostInteractionsContainer amountOfLikes={amountOfLikes} isLiked={isLiked} commentId={id} isComment={false}/>
                     <CreateCommentComponent parentId={id} />
                     <CommentsComponent comments={comments}/>

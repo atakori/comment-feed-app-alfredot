@@ -37,7 +37,7 @@ const PostMessage = styled.p`
     color: rgba(18, 21, 29, 0.87);
 `;
 
-const CommentInfoContainer = styled.div<CommentInfoContainerProps>`
+const PostInfoContainer = styled.div<PostInfoContainerProps>`
     border-top: ${props => props.isComment ? '1px solid #CED7E7;' : 'none;'}
     padding: ${props => props.isComment ? '16px 0px;' : 'none;'}
 `
@@ -53,21 +53,21 @@ type PosterInformationHeaderProps = {
     isComment: boolean;
 }
 
-type CommentInfoContainerProps = {
+type PostInfoContainerProps = {
     isComment: boolean;
 }
 
 // Adding locale Time for "Time Since Posted"
 TimeAgo.addDefaultLocale(en);
 
-const CommentInfoComponent = ({
+const PostInfoComponent = ({
     username,
     dateCreated,
     message,
     isComment,
 }: CommentInfo) => {
     return (
-        <CommentInfoContainer isComment={isComment}>
+        <PostInfoContainer isComment={isComment}>
             <ProfileFeedHeaderContainer>
                 <Avatar
                     alt={username}
@@ -80,8 +80,8 @@ const CommentInfoComponent = ({
                 </PosterInformationContainer>
             </ProfileFeedHeaderContainer>
             <PostMessage>{message}</PostMessage>
-        </CommentInfoContainer>
+        </PostInfoContainer>
     );
 };
 
-export default CommentInfoComponent;
+export default PostInfoComponent;

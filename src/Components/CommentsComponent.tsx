@@ -1,5 +1,5 @@
 import { IComment, IUserProfile } from "../types";
-import CommentInfoComponent from "./CommentInfoComponent";
+import PostInfoComponent from "./PostInfoComponent";
 import PostInteractionsComponent from "./PostInteractionsComponent";
 import { useUserProfileContext } from "../context/profileContext";
 
@@ -18,7 +18,7 @@ const CommentsComponent = ({comments}: CommentsComponentProps) => {
 
                 return (
                     <div key={id}>
-                        <CommentInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={true}/>
+                        <PostInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={true}/>
                         <PostInteractionsComponent amountOfLikes={amountOfLikes} isLiked={isLiked} commentId={id} isComment={true}/>
                     </div>
                     
