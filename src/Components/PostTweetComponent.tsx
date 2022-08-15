@@ -96,7 +96,8 @@ const PostTweetComponent = () => {
 
     const handleSubmit = () => {
         const transformedPayload = transformPostMessage(postMessage, profileUsername);
-        savePost(transformedPayload)
+        savePost(transformedPayload);
+        setPostMessage("");
     }
 
   return (

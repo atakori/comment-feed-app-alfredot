@@ -1,6 +1,6 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { PostsContextType, IComment, IUserProfile } from '../types';
-import { PostsContext, usePostsContext } from '../context/postsContext';
+import { usePostsContext } from '../context/postsContext';
 import NoPostsFoundComponent from './NoPostsFoundComponent';
 import styled from 'styled-components';
 

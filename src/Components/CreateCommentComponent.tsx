@@ -55,15 +55,20 @@ const ActionButton = styled.button`
 const CreateCommentComponent = ({ parentId }: any) => {
     const { savePost } = usePostsContext() as PostsContextType;
     const { profileUsername } = useUserProfileContext() as IUserProfile;
-    const [ commentMessage, setCommentMessage ] = useState('');
+    const [ commentMessage, setCommentMessage ] = useState("");
 
-    // Submits the Comment To the savePostApi
+    // Submits the Comment to the savePost API
     const handleSubmit = (e: KeyboardEvent) => {
         if(e.key === 'Enter') {
             e.preventDefault();
 
             const postMessage = transformPostMessage(commentMessage, profileUsername, parentId)
             savePost(postMessage);
+
+            // Erase Comment After successful submission
+            const element = document.querySelector('span[contentEditable]')
+            if (element)
+                element.textContent = ""
         }
     }
 

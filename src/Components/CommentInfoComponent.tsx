@@ -4,7 +4,6 @@ import TimeAgo from 'javascript-time-ago';
 import ReactTimeAgo from 'react-time-ago';
 import en from 'javascript-time-ago/locale/en.json';
 import Avatar from '@mui/material/Avatar';
-import { prependListener } from 'process';
 
 const ProfileFeedHeaderContainer = styled.div`
     display: flex;
