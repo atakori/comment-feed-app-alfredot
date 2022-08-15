@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-comment-app-alfredot/static/css/main.e6c13ad2.css",
+    "main.js": "/react-comment-app-alfredot/static/js/main.ee29cddb.js",
+    "index.html": "/react-comment-app-alfredot/index.html",
+    "main.e6c13ad2.css.map": "/react-comment-app-alfredot/static/css/main.e6c13ad2.css.map",
+    "main.ee29cddb.js.map": "/react-comment-app-alfredot/static/js/main.ee29cddb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.ee29cddb.js"
+  ]
+}
