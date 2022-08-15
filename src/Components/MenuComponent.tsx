@@ -19,8 +19,9 @@ const MenuComponent = () => {
   };
 
   return (
-    <MenuContainer>
+    <MenuContainer data-testid="menuContainer">
       <Button
+        data-testid="menuButton"
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
@@ -31,6 +32,7 @@ const MenuComponent = () => {
         ...
       </Button>
       <Menu
+        data-testid="menu"
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
@@ -39,8 +41,8 @@ const MenuComponent = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Edit Post</MenuItem>
-        <MenuItem onClick={handleClose}>Delete Post</MenuItem>
+        <MenuItem data-testid="menuButton" onClick={handleClose}>Edit Post</MenuItem>
+        <MenuItem data-testid="menuButton" onClick={handleClose}>Delete Post</MenuItem>
       </Menu>
     </MenuContainer>
   );

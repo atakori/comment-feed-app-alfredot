@@ -71,8 +71,9 @@ const CreateCommentComponent = ({ parentId }: any) => {
 
             // Erase Comment After successful submission
             const element = document.querySelector('span[contentEditable]')
-            if (element)
+            if (element) 
                 element.textContent = ""
+
         }
     }
 
@@ -82,6 +83,7 @@ const CreateCommentComponent = ({ parentId }: any) => {
                 <FontAwesomeIcon icon={faMessage} />
             </ActionButton>
             <InputField
+                data-testid="commentInputField"
                 placeholder='Add Comment'
                 onInput={(e) =>
                     setCommentMessage(e.currentTarget.textContent || '')

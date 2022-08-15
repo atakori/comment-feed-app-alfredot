@@ -35,10 +35,10 @@ const mockUsePostsContext: PostsContextType = {
     updateLikes: jest.fn()
 };
 
-describe('NoPostsFoundComponent', function () {
+describe('CreateCommentComponent', function () {
     afterEach(cleanup);
 
-    it('should display all comments if comments are available', function () {
+    it("should create a new comment when 'Enter' is pressed", function () {
         jest.spyOn(profileHooks, 'useUserProfileContext').mockImplementation(
             () => mockProfileContext,
         );
