@@ -1,9 +1,7 @@
-import { useEffect } from 'react';
 import { PostsContextType, IComment, IUserProfile } from '../types';
 import { usePostsContext } from '../context/postsContext';
 import NoPostsFoundComponent from './NoPostsFoundComponent';
 import styled from 'styled-components';
-
 import MenuComponent from './MenuComponent';
 import CreateCommentComponent from './CreateCommentComponent';
 import CommentsComponent from './CommentsComponent';

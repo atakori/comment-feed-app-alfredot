@@ -1,4 +1,3 @@
-import './App.css';
 import NavigationBarComponent from './Components/NavigationBarComponent';
 import PostTweetComponent from './Components/PostTweetComponent';
 import ProfileFeedComponent from './Components/ProfileFeedComponent';

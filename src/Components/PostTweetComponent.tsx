@@ -88,8 +88,6 @@ const PostTweetButtonsContainer = styled.div`
   justify-content: space-between;
 `;
 
-
-
 const PostTweetComponent = () => {
     const [ postMessage, setPostMessage ] = useState("")
     const { savePost } = usePostsContext() as PostsContextType;
