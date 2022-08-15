@@ -70,7 +70,8 @@ const CreateCommentComponent = ({ parentId }: any) => {
             savePost(postMessage);
 
             // Erase Comment After successful submission
-            const element = document.querySelector('span[contentEditable]')
+            const element = e.currentTarget as Element
+
             if (element) 
                 element.textContent = ""
 

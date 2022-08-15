@@ -36,8 +36,6 @@ const ProfileFeedComponent = () => {
             // Looks at each comment where the parentId == current id
             const amountOfComments = comments.filter((comment) => comment.parentId === id).length
 
-            console.log("COMMENTS")
-            console.log(amountOfComments);
             return (
                 <ProfileFeedPostContainer data-testid="postContainer" key={id}>
                     <MenuComponent />
