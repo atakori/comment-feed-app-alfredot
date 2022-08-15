@@ -161,7 +161,7 @@ const NavigationBarComponent = () => {
               <Avatar alt={profileUsername} src={photoUrl} sx={{width:30, height: 30}}/>
               <OnlineStatusCircle />
             </AvatarContainer>
-              <Tooltip title="Open settings">
+              <Tooltip title="Open Profile Settings">
                 <IconButton data-testid="profileMenuButton" disableRipple={true} onClick={handleOpenUserMenu} sx={{ p: 0, backgroundColor: 'transparent' }}>
                   <FontAwesomeIcon icon={faChevronDown} style={{fontWeight: 400, fontSize: '12px', lineHeight: '12px'}}/>
                 </IconButton>

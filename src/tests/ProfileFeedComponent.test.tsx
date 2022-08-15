@@ -22,7 +22,7 @@ describe('ProfileFeedComponent', function () {
 
         //Expect
         expect(screen.queryByTestId("profileFeedContainer")).toBeNull();
-        expect(screen.getByText(/Looks like there are no Posts found/)).toBeInTheDocument();
+        expect(screen.getByText(/No Posts Yet/)).toBeInTheDocument();
     });
 
     it("should render profile feed with all comments", async function () {

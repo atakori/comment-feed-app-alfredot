@@ -7,6 +7,6 @@ describe('NoPostsFoundComponent', function () {
 
    it('should display Post Not Found Message', function () {
        render(<NoPostsFoundComponent/>)
-       expect(screen.getByText(/Looks like there are no Posts found/)).toBeInTheDocument();
+       expect(screen.getByText(/No Posts Yet/)).toBeInTheDocument();
    });
 });
