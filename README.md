@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# Posting/Comment Demo - Alfredo Takori
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hello There! This my MVP for a comment/post system that which is similar to posting comments and stories on social media. This demo allows you to be able to create new posts as well as to be able to comment on previous posts. It also features a simple 'like'(Hypes) system. For this MVP, I did not allow for users to be able to comment on comments, but that could easily be implemented in future iterations.
 
-## Available Scripts
+This was a Frontend project and as such I used a combination of React Context API and React Hooks in order to simulate the backend. For something like this to exist as an acutal product, a true backend would need to be implemented.
 
-In the project directory, you can run:
+Feel free to play around with it here:
+
+## How To Run
+
+In order to run this app, feel free to clone the repo and run the following commands in your terminal:
+
+### `npm install`
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Testing
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+For testing purposes I used libraries such as React Testing-Library as well as Jest. In order to run tests, go to the root directory of the repository and type the following into the terminal:
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Future Features
 
-### `npm run build`
+Here are a few features that I would like to add:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   Comment button activating comment field
+-   Simulation of views increasing for posts
+-   Simulation of other users commenting on submitted posts
+-   Form validation for submitting posts/comments
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies/libraries Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-   Frontend Framework = React w/ Typescript
+-   State Management = React Context API
+-   Testing = React Testing Library \* Jest
