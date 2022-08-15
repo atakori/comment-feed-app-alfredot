@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { PostsContextType, IComment } from '../types';
 import { PostsContext } from '../context/postsContext';
 import NoPostsFoundComponent from './NoPostsFoundComponent';
@@ -8,6 +8,7 @@ import MenuComponent from './MenuComponent';
 import CreateCommentComponent from './CreateCommentComponent';
 import CommentsComponent from './CommentsComponent';
 import CommentInfoComponent from './CommentInfoComponent';
+import PostInteractionsContainer from './PostInteractionsComponent';
 
 const ProfileFeedPostContainer = styled.div`
     border: 1px solid #ced7e7;
@@ -39,6 +40,7 @@ const ProfileFeedComponent = () => {
                 <ProfileFeedPostContainer key={id}>
                     <MenuComponent />
                     <CommentInfoComponent message={message} dateCreated={dateCreated} username={username} isComment={false}/>
+                    <PostInteractionsContainer isComment={false}/>
                     <CreateCommentComponent parentId={id} />
                     <CommentsComponent comments={comments}/>
                 </ProfileFeedPostContainer>
@@ -51,15 +53,6 @@ const ProfileFeedComponent = () => {
     ) : (
         <div>
             {renderPosts(posts)}
-
-            {/* Lower Half */}
-            <p>Message</p>
-            <p>Hypes (Likes)</p>
-            <p>Comments []</p>
-            <p>Shares</p>
-            <p>Views</p>
-
-            <p>Add Comment Box</p>
         </div>
     );
 };
