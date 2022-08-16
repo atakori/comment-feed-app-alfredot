@@ -4,9 +4,7 @@ Hello There! This my MVP for a comment/post system that which is similar to post
 
 This was a Frontend project and as such I used a combination of React Context API and React Hooks in order to simulate the backend. For something like this to exist as an acutal product, a true backend would need to be implemented.
 
-Feel free to play around with it here:
-
-## How To Run
+## How To Run Locally
 
 In order to run this app, feel free to clone the repo and run the following commands in your terminal:
 
