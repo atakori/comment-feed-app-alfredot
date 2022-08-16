@@ -26,9 +26,12 @@ Here are a few features that I would like to add:
 -   Simulation of views increasing for posts
 -   Simulation of other users commenting on submitted posts
 -   Form validation for submitting posts/comments
+-   Loading Indicators / CSS Animations
 
 ## Technologies/libraries Used
 
 -   Frontend Framework = React w/ Typescript
 -   State Management = React Context API
--   Testing = React Testing Library \* Jest
+-   Testing = React Testing Library & Jest
+-   Styling = Styled Components
+-   Time Libraries = React-time-ago & Javascript-time-ago
